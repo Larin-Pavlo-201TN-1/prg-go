@@ -109,7 +109,7 @@ func TaskRouter(r chi.Router, tc controllers.TaskController) {
 			tc.Save(),
 		)
 		apiRouter.Get(
-			"/user",
+			"/",
 			tc.FindByUserId(),
 		)
 		apiRouter.Get(

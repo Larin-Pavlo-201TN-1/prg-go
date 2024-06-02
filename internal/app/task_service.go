@@ -24,7 +24,7 @@ func NewTaskService(tr database.TaskRepository) TaskService {
 	}
 }
 
-func (s *taskService) Save(t domain.Task) (domain.Task, error) {
+func (s taskService) Save(t domain.Task) (domain.Task, error) {
 	task, err := s.taskRepo.Save(t)
 	if err != nil {
 		log.Printf("TaskService -> Save: %s", err)
@@ -33,7 +33,7 @@ func (s *taskService) Save(t domain.Task) (domain.Task, error) {
 	return task, nil
 }
 
-func (s *taskService) FindByUserId(uId uint64) ([]domain.Task, error) {
+func (s taskService) FindByUserId(uId uint64) ([]domain.Task, error) {
 	tasks, err := s.taskRepo.FindByUserId(uId)
 	if err != nil {
 		log.Printf("TaskService -> FindByUserId: %s", err)
